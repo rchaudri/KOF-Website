@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===== Hamburger / mobile nav ===== */
   const hamburger = document.getElementById("hamburger");
   const navRight = document.getElementById("navRight");
+  const mainNav = document.getElementById("mainNav");
 
   if (hamburger && navRight) {
     const openNav = () => {
@@ -89,9 +90,17 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.key === "Escape" && navRight.classList.contains("open")) closeNav();
     });
 
-    // Close when clicking the overlay background (not the links)
-    navRight.addEventListener("click", e => {
-      if (e.target === navRight) closeNav();
+    // Close when tapping the mobile overlay background or outside the nav
+    document.addEventListener("click", e => {
+      if (
+        navRight.classList.contains("open") &&
+        (
+          e.target === navRight ||
+          (mainNav && !mainNav.contains(e.target))
+        )
+      ) {
+        closeNav();
+      }
     });
   }
 

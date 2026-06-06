@@ -1387,9 +1387,9 @@ main { position: relative; z-index: 3; }
 
 .rwh-section {
   background:
-    radial-gradient(circle at 6% 18%, rgba(33, 168, 155, 0.14), transparent 30%),
-    radial-gradient(circle at 94% 82%, rgba(232, 203, 165, 0.16), transparent 32%),
-    linear-gradient(160deg, #16202c, #1e2e3e 50%, #162028);
+    radial-gradient(circle at 8% 18%, rgba(33, 168, 155, 0.1), transparent 30%),
+    radial-gradient(circle at 94% 82%, rgba(232, 203, 165, 0.1), transparent 32%),
+    linear-gradient(160deg, #0e141d, #172232 52%, #0e151d);
   color: rgba(240, 238, 234, 0.95);
 }
 
@@ -1406,15 +1406,17 @@ main { position: relative; z-index: 3; }
 
 .rwh-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   margin-top: 32px;
 }
 
 .rwh-card {
-  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 18px;
+  border-radius: 14px;
   overflow: hidden;
   transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
@@ -1428,14 +1430,18 @@ main { position: relative; z-index: 3; }
 
 .rwh-card img {
   width: 100%;
+  aspect-ratio: 4 / 5;
   height: auto;
   display: block;
+  object-fit: contain;
+  background: #05080c;
   transition: transform 0.4s ease;
 }
 
 .rwh-card:hover img { transform: scale(1.04); }
 
 .rwh-caption {
+  flex: 1;
   padding: 12px 14px 14px;
   background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(8px);
@@ -1587,6 +1593,8 @@ main { position: relative; z-index: 3; }
 .rwh-grid .rwh-card:nth-child(4) { transition-delay: 0.2s; }
 
 .rwh-grid .rwh-card:nth-child(5) { transition-delay: 0.25s; }
+.rwh-grid .rwh-card:nth-child(6) { transition-delay: 0.3s; }
+.rwh-grid .rwh-card:nth-child(7) { transition-delay: 0.35s; }
 
 /* Stagger scroll-in for cards inside visible sections */
 .visible .signals-primary-grid .signal-card:nth-child(1),
@@ -1600,6 +1608,10 @@ main { position: relative; z-index: 3; }
 
 .visible .signals-primary-grid .signal-card:nth-child(4),
 .visible .rwh-grid .rwh-card:nth-child(4) { transition-delay: 0.32s; }
+
+.visible .rwh-grid .rwh-card:nth-child(5) { transition-delay: 0.4s; }
+.visible .rwh-grid .rwh-card:nth-child(6) { transition-delay: 0.48s; }
+.visible .rwh-grid .rwh-card:nth-child(7) { transition-delay: 0.56s; }
 
 /* ============================================================
    STAT COUNTER ANIMATION

@@ -582,7 +582,7 @@ main { position: relative; z-index: 3; }
   border-color: rgba(15, 118, 110, 0.35);
 }
 
-.still-card img { width: 100%; height: 230px; object-fit: cover; }
+.still-card img { width: 100%; height: auto; display: block; }
 
 .still-card figcaption {
   padding: 12px 14px 14px;
@@ -653,19 +653,16 @@ main { position: relative; z-index: 3; }
   overflow: hidden;
   background: #f3f5f8;
   border-bottom: 1px solid var(--border-subtle);
-  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.signal-card.large .signal-media { height: 280px; }
-
 .signal-media img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
+  height: auto;
+  display: block;
+  object-fit: initial;
 }
 
 .signal-body { padding: 16px 18px 18px; }
@@ -1374,7 +1371,7 @@ main { position: relative; z-index: 3; }
   margin-top: 18px;
 }
 
-.signal-card.compact .signal-media { height: 160px; }
+.signal-card.compact .signal-media { height: auto; }
 
 .signal-card.compact .signal-body { padding: 12px 14px 14px; }
 
@@ -1388,7 +1385,7 @@ main { position: relative; z-index: 3; }
 
 @media (max-width: 720px) {
   .signals-quad-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .signal-card.compact .signal-media { height: 140px; }
+  .signal-card.compact .signal-media { height: auto; }
 }
 
 @media (max-width: 480px) {
@@ -1442,8 +1439,7 @@ main { position: relative; z-index: 3; }
 
 .rwh-card img {
   width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  height: auto;
   display: block;
   transition: transform 0.4s ease;
 }
@@ -1790,4 +1786,48 @@ main { position: relative; z-index: 3; }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* ============================================================
+   STRANGE TOUCHES
+   ============================================================ */
+
+/* Hero grain texture */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.032;
+  pointer-events: none;
+  z-index: 4;
+  mix-blend-mode: multiply;
+}
+
+/* Strange marquee items — break the name pattern */
+.marquee-item--strange {
+  font-style: italic;
+  opacity: 0.78;
+  letter-spacing: 0.04em;
+}
+
+/* Standalone strange line — "He knows where the files are." */
+.strange-line {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+  margin-top: 6px;
+  letter-spacing: 0.01em;
+}
+
+/* Legacy "Rohan was here." — slow glow pulse */
+@keyframes ghost-pulse {
+  0%, 100% { opacity: 1; text-shadow: none; }
+  50%       { opacity: 0.82; text-shadow: 0 0 28px rgba(15, 118, 110, 0.5); }
+}
+
+.bio-text {
+  animation: ghost-pulse 5s ease-in-out infinite;
 }

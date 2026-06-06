@@ -1845,3 +1845,108 @@ html {
   display: flex;
   align-items: flex-end;
 }
+
+/* ============================================================
+   CURSOR GLOW SPOTLIGHT
+   ============================================================ */
+
+.cursor-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  transition: opacity 0.3s ease;
+}
+
+/* ============================================================
+   HERO ENTRANCE — CINEMATIC
+   ============================================================ */
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(52px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes hero-drift-right {
+  from {
+    opacity: 0;
+    transform: translateX(64px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-video-drift {
+  from { transform: scale(1.015); }
+  to   { transform: scale(1.06); }
+}
+
+@keyframes overlay-breathe {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.9; }
+}
+
+/* Slow zoom on background video */
+.hero-video {
+  animation: hero-video-drift 30s ease-out forwards;
+}
+
+/* Hero overlay subtle breathe */
+.hero-overlay {
+  animation: overlay-breathe 14s ease-in-out infinite;
+}
+
+/* H1 line spans — block display so they stack */
+.hero-title-line {
+  display: block;
+}
+
+/* All entrance animations fire after .page-loaded is set on body */
+.page-loaded .hero-text .eyebrow {
+  animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.page-loaded .hero-title-line {
+  animation: hero-rise 1.05s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+}
+
+.page-loaded .hero-title-line--2 {
+  animation-delay: 0.4s;
+}
+
+.page-loaded .hero-text .lede {
+  animation: hero-fade-up 0.85s ease-out 0.62s both;
+}
+
+.page-loaded .cta-row {
+  animation: hero-fade-up 0.75s ease-out 0.82s both;
+}
+
+.page-loaded .hero-badges {
+  animation: hero-fade-up 0.7s ease-out 1.0s both;
+}
+
+.page-loaded .hero-card {
+  animation: hero-drift-right 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.page-loaded .marquee-wrap {
+  animation: hero-fade-up 0.65s ease-out 1.25s both;
+}

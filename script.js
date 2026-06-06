@@ -1,3 +1,26 @@
+/* ===== Hero entrance — fires on full page load ===== */
+window.addEventListener("load", () => {
+  document.body.classList.add("page-loaded");
+});
+
+/* ===== Cursor glow spotlight ===== */
+const cursorGlow = document.querySelector(".cursor-glow");
+if (cursorGlow) {
+  let cx = -300, cy = -300, rafPending = false;
+  document.addEventListener("mousemove", e => {
+    cx = e.clientX;
+    cy = e.clientY;
+    if (!rafPending) {
+      rafPending = true;
+      requestAnimationFrame(() => {
+        cursorGlow.style.background =
+          `radial-gradient(520px circle at ${cx}px ${cy}px, rgba(15,118,110,0.08), transparent 42%)`;
+        rafPending = false;
+      });
+    }
+  }, { passive: true });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ===== Scroll-in animation ===== */

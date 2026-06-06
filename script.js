@@ -95,18 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ===== Smooth scroll for nav links ===== */
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", e => {
-      const targetId = link.getAttribute("href");
-      if (!targetId || targetId === "#") return;
-      const targetEl = document.querySelector(targetId);
-      if (!targetEl) return;
-      e.preventDefault();
-      window.scrollTo({ top: targetEl.offsetTop - 70, behavior: "smooth" });
-    });
-  });
-
   /* ===== Dynamic year in footer ===== */
   const yearSpan = document.getElementById("year");
   if (yearSpan) {

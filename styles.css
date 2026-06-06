@@ -335,7 +335,10 @@ main { position: relative; z-index: 3; }
    SHARED SECTION TOKENS
    ============================================================ */
 
-.section { padding: 96px 0; }
+.section {
+  padding: 96px 0;
+  scroll-margin-top: 32px;
+}
 
 .section-alt {
   background: linear-gradient(180deg, #eef2f6, #f6f7f9);

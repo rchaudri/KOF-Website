@@ -3,21 +3,6 @@ window.addEventListener("load", () => {
   document.body.classList.add("page-loaded");
 });
 
-/* ===== Controlled archive glitch pulse ===== */
-const triggerArchiveGlitch = () => {
-  document.body.classList.add("is-glitching");
-  window.setTimeout(() => {
-    document.body.classList.remove("is-glitching");
-  }, 140);
-};
-
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  window.setTimeout(triggerArchiveGlitch, 900);
-  window.setInterval(() => {
-    if (Math.random() > 0.42) triggerArchiveGlitch();
-  }, 5200);
-}
-
 /* ===== Cursor glow spotlight ===== */
 const cursorGlow = document.querySelector(".cursor-glow");
 if (cursorGlow) {

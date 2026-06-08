@@ -1961,6 +1961,8 @@ html {
   --signal-blue: #7aa7ff;
   --paper: #efe4cc;
   --paper-ink: #1d1811;
+  --archive-cream: #f4ecdc;
+  --archive-gold: #f0c75e;
   --text-main: #f4ecdc;
   --text-muted: #b7ad9a;
   --border-subtle: rgba(240, 199, 94, 0.2);
@@ -4048,5 +4050,37 @@ body::after {
 }
 
 .album-showcase .eyebrow {
+  color: #8b2b25;
+}
+
+/* Final synthesis background fix */
+#synthesis .album-showcase {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 238, 0.92), rgba(222, 214, 197, 0.88)),
+    #efe6d2;
+  border-color: rgba(244, 236, 220, 0.34);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+  color: #17130d;
+}
+
+#synthesis .album-frame {
+  background: rgba(255, 250, 238, 0.78);
+  border-color: rgba(23, 19, 13, 0.16);
+  box-shadow: 0 18px 48px rgba(23, 19, 13, 0.18);
+}
+
+#synthesis .album-showcase h3,
+#synthesis .album-showcase p,
+#synthesis .album-showcase .section-lede,
+#synthesis .album-showcase .album-writeup-title {
+  color: #17130d;
+}
+
+#synthesis .album-showcase .section-lede,
+#synthesis .album-showcase p {
+  color: rgba(23, 19, 13, 0.74);
+}
+
+#synthesis .album-showcase .eyebrow {
   color: #8b2b25;
 }

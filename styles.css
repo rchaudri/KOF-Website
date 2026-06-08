@@ -2402,20 +2402,6 @@ main,
   pointer-events: none;
 }
 
-.archive-tile::after {
-  content: "DOCUMENTED";
-  position: absolute;
-  right: 18px;
-  bottom: 16px;
-  color: rgba(182, 51, 44, 0.55);
-  border: 1px solid rgba(182, 51, 44, 0.35);
-  padding: 4px 8px;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  transform: rotate(-3deg);
-}
-
 .archive-tile--large {
   grid-row: span 2;
   min-height: 454px;
@@ -3087,7 +3073,9 @@ main,
 
 #stills {
   background:
-    linear-gradient(180deg, #f1e6cf, #e3d3af);
+    radial-gradient(circle at 16% 14%, rgba(139, 43, 37, 0.14), transparent 30rem),
+    radial-gradient(circle at 82% 18%, rgba(20, 184, 166, 0.1), transparent 34rem),
+    linear-gradient(180deg, #0d0b08, #11100d 48%, #090806);
 }
 
 .stills-grid {
@@ -3178,40 +3166,8 @@ main,
 }
 
 /* ============================================================
-   READABILITY PASS: LIGHT ARCHIVE SECTIONS
+   READABILITY PASS: LIGHT ARTIFACTS ON DARK ARCHIVE SECTIONS
    ============================================================ */
-
-.section-alt,
-.senate-section,
-#stills {
-  color: #17130d;
-}
-
-.section-alt h2,
-.section-alt h3,
-.section-alt .section-lede,
-.section-alt .section-tagline,
-.section-alt p,
-.section-alt figcaption,
-.senate-section h2,
-.senate-section h3,
-.senate-section .section-lede,
-.senate-section .section-tagline,
-.senate-section p,
-.senate-section figcaption,
-#stills h2,
-#stills h3,
-#stills .section-lede,
-#stills p,
-#stills figcaption {
-  color: #17130d;
-}
-
-.section-alt .eyebrow,
-.senate-section .eyebrow,
-#stills .eyebrow {
-  color: #8b2b25;
-}
 
 .senate-detail-item,
 .section-alt .point-card,
@@ -3257,8 +3213,6 @@ main,
   line-height: 1.45;
 }
 
-.poster-meta,
-.poster-copy .section-lede,
 .album-writeup-title,
 .album-showcase .section-lede,
 .album-showcase p {
@@ -3316,16 +3270,6 @@ main,
 .archive-tile--large.archive-tile--evidence::before {
   z-index: 1;
   opacity: 0.14;
-}
-
-.archive-tile--large.archive-tile--evidence::after {
-  top: 18px;
-  right: 18px;
-  bottom: auto;
-  z-index: 4;
-  background: rgba(11, 10, 8, 0.78);
-  color: #f06f5f;
-  transform: rotate(-2deg);
 }
 
 .archive-tile-media {
@@ -3543,9 +3487,7 @@ main,
   margin-bottom: 28px;
 }
 
-.hero-card::after,
-.archive-tile::after,
-.archive-tile--large.archive-tile--evidence::after {
+.hero-card::after {
   transform: none;
 }
 
@@ -3742,9 +3684,7 @@ body::after {
     inset 0 1px 0 rgba(244, 236, 220, 0.045);
 }
 
-.hero-card::after,
-.archive-tile::after,
-.archive-tile--large.archive-tile--evidence::after {
+.hero-card::after {
   color: rgba(244, 236, 220, 0.82);
   border-color: rgba(240, 199, 94, 0.28);
   background: rgba(8, 7, 6, 0.72);
@@ -3969,4 +3909,144 @@ body::after {
   .origin-images .image-caption {
     min-height: 0;
   }
+}
+
+/* ============================================================
+   DARK ARCHIVE BACKGROUND RESTORE
+   ============================================================ */
+
+.section-alt,
+.poster-section,
+#stills,
+#synthesis,
+.senate-section {
+  background:
+    radial-gradient(circle at 18% 10%, rgba(139, 43, 37, 0.16), transparent 32%),
+    radial-gradient(circle at 84% 18%, rgba(20, 184, 166, 0.12), transparent 36%),
+    linear-gradient(90deg, rgba(239, 228, 204, 0.045), transparent 20%, transparent 80%, rgba(239, 228, 204, 0.04)),
+    linear-gradient(180deg, #0d0b08 0%, #11100d 48%, #090806 100%);
+  color: var(--archive-cream);
+}
+
+.section-alt::before,
+.poster-section::before,
+#stills::before,
+#synthesis::before,
+.senate-section::before {
+  opacity: 0.5;
+  background-image:
+    linear-gradient(90deg, rgba(239, 228, 204, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(239, 228, 204, 0.035) 1px, transparent 1px);
+}
+
+.section-alt h2,
+.section-alt h3,
+.section-alt p,
+.section-alt figcaption,
+.section-alt .section-lede,
+.section-alt .section-tagline,
+.poster-section h2,
+.poster-section h3,
+.poster-section p,
+.poster-section .section-lede,
+.poster-meta,
+#stills h2,
+#stills h3,
+#stills .section-lede,
+#stills p,
+#stills figcaption,
+#synthesis h2,
+#synthesis h3,
+#synthesis p,
+#synthesis .section-lede,
+.senate-section h2,
+.senate-section h3,
+.senate-section p,
+.senate-section .section-lede,
+.senate-section .section-tagline,
+.senate-section figcaption {
+  color: var(--archive-cream);
+}
+
+.section-alt .section-lede,
+.section-alt .section-tagline,
+.poster-section .section-lede,
+.poster-meta,
+#stills .section-lede,
+#synthesis .section-lede,
+.senate-section .section-lede,
+.senate-section .section-tagline {
+  color: rgba(244, 236, 220, 0.76);
+}
+
+.section-alt .eyebrow,
+.poster-section .eyebrow,
+#stills .eyebrow,
+#synthesis .eyebrow,
+.senate-section .eyebrow {
+  color: var(--archive-gold);
+}
+
+#synthesis .inline-link {
+  color: #2dd4bf;
+  text-decoration-color: rgba(45, 212, 191, 0.45);
+}
+
+.section-alt .pill,
+.poster-section .pill,
+#synthesis .pill,
+.senate-section .pill {
+  background: rgba(255, 250, 238, 0.82);
+  border-color: rgba(239, 228, 204, 0.22);
+  color: #17130d;
+}
+
+.section-alt .btn.ghost,
+.poster-section .btn.ghost,
+#synthesis .btn.ghost,
+.senate-section .btn.ghost {
+  color: var(--archive-cream);
+  background: rgba(244, 236, 220, 0.08);
+  border-color: rgba(244, 236, 220, 0.2);
+}
+
+.poster-image-frame,
+.section-alt .image-frame,
+.section-alt .album-showcase,
+.senate-frame {
+  background: rgba(255, 250, 238, 0.68);
+  border-color: rgba(23, 19, 13, 0.22);
+  box-shadow: 0 22px 60px rgba(23, 19, 13, 0.18);
+}
+
+.senate-detail-item {
+  background: rgba(255, 250, 238, 0.78);
+  border-color: rgba(23, 19, 13, 0.22);
+  box-shadow: 0 14px 34px rgba(23, 19, 13, 0.12);
+}
+
+.senate-section .detail-label {
+  color: #8b2b25;
+}
+
+.senate-section .detail-value {
+  color: #17130d;
+}
+
+.senate-frame .image-caption {
+  color: #17130d;
+  background: rgba(255, 250, 238, 0.86);
+  border: 1px solid rgba(23, 19, 13, 0.14);
+}
+
+.album-showcase h3,
+.album-showcase p,
+.album-showcase .section-lede,
+.album-showcase .eyebrow,
+.album-showcase .album-writeup-title {
+  color: #17130d;
+}
+
+.album-showcase .eyebrow {
+  color: #8b2b25;
 }

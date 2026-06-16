@@ -4186,13 +4186,6 @@ body::after {
   line-height: 1.3;
 }
 
-.track-title small {
-  color: rgba(244, 236, 220, 0.54);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .album-track-list time {
   color: rgba(244, 236, 220, 0.72);
   font-size: 0.82rem;
